@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -eu
+
+BUNDLE_ID="me.villani.lorenzo.TurboBoostControl"
+KEXT_NAME="TurboBoostControl.kext"
+STAGING_DIR="/tmp"
+
+STAGING_PATH="${STAGING_DIR}/${KEXT_NAME}"
+
+# Cleanup
+sudo kextunload -b "${BUNDLE_ID}" || true
+sudo rm -rf "${STAGING_PATH}"
+
+# Stage
+cp -r \
+    "${HOME}/Library/Developer/Xcode/DerivedData/"TurboBoostControl*"/Build/Products/Debug/${KEXT_NAME}" \
+    "${STAGING_DIR}"
+sudo chown -R root:wheel "${STAGING_PATH}"
+
+# Check
+sudo kextlibs -xml "${STAGING_PATH}"
+sudo kextutil -n -t "${STAGING_PATH}"
+
+# Load
+sudo kextload "${STAGING_PATH}"
