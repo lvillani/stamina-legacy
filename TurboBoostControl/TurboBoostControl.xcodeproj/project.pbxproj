@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		BF163244211ED1BC0071F8EB /* TurboBoostControl.c in Sources */ = {isa = PBXBuildFile; fileRef = BF163243211ED1BC0071F8EB /* TurboBoostControl.c */; };
+		BF9F76872121C81F00E6FA59 /* me.villani.lorenzo.TurboBoostControl.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF9F76862121C81F00E6FA59 /* me.villani.lorenzo.TurboBoostControl.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BF163240211ED1BC0071F8EB /* TurboBoostControl.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TurboBoostControl.kext; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF163243211ED1BC0071F8EB /* TurboBoostControl.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = TurboBoostControl.c; sourceTree = "<group>"; };
 		BF163245211ED1BC0071F8EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF9F76862121C81F00E6FA59 /* me.villani.lorenzo.TurboBoostControl.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = me.villani.lorenzo.TurboBoostControl.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +50,7 @@
 			children = (
 				BF163243211ED1BC0071F8EB /* TurboBoostControl.c */,
 				BF163245211ED1BC0071F8EB /* Info.plist */,
+				BF9F76862121C81F00E6FA59 /* me.villani.lorenzo.TurboBoostControl.plist */,
 			);
 			path = TurboBoostControl;
 			sourceTree = "<group>";
@@ -119,6 +122,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF9F76872121C81F00E6FA59 /* me.villani.lorenzo.TurboBoostControl.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

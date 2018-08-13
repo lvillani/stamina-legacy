@@ -2,11 +2,13 @@
 
 set -eu
 
+cd "$(dirname "${0}")/../"
+
 BUNDLE_ID="me.villani.lorenzo.TurboBoostControl"
-KEXT_NAME="TurboBoostControl.kext"
+KEXT_FILE="TurboBoostControl.kext"
 
 DEST_DIR="/Library/Extensions"
-DEST_PATH="${DEST_DIR}/${KEXT_NAME}"
+DEST_PATH="${DEST_DIR}/${KEXT_FILE}"
 
 # Cleanup
 sudo kextunload -b "${BUNDLE_ID}" || true
@@ -14,7 +16,7 @@ sudo rm -rf "${DEST_PATH}"
 
 # Stage
 sudo cp -r \
-    "${HOME}/Library/Developer/Xcode/DerivedData/"TurboBoostControl*"/Build/Products/Debug/${KEXT_NAME}" \
+    "${HOME}/Library/Developer/Xcode/DerivedData/"TurboBoostControl*"/Build/Products/Debug/${KEXT_FILE}" \
     "${DEST_DIR}"
 sudo chown -R root:wheel "${DEST_PATH}"
 

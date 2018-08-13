@@ -1,0 +1,28 @@
+#!/bin/bash
+
+set -eu
+
+cd "$(dirname "${0}")/../"
+
+BUNDLE_ID="me.villani.lorenzo.TurboBoostControl"
+
+LAUNCHDAEMON_FILE="me.villani.lorenzo.TurboBoostControl.plist"
+
+DEST_DIR="/Library/LaunchDaemons"
+DEST_PATH="${DEST_DIR}/${LAUNCHDAEMON_FILE}"
+
+# Install kext through the usual means, then try to load it with our launch daemon.
+./script/run
+
+# Cleanup
+sudo kextunload -b "${BUNDLE_ID}" || true
+sudo launchctl unload "${DEST_PATH}" || true
+sudo rm -f "${DEST_PATH}"
+
+# Install
+sudo install -o root -g wheel "TurboBoostControl/${LAUNCHDAEMON_FILE}" "${DEST_PATH}"
+sudo launchctl load "${DEST_PATH}"
+
+# Check
+sleep 1
+kextstat | grep "${BUNDLE_ID}"
