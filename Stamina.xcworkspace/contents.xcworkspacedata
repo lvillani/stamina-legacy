@@ -5,6 +5,6 @@
       location = "group:App/Stamina.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:TurboBoostControl/TurboBoostControl.xcodeproj">
+      location = "group:Kext/TurboBoostControl.xcodeproj">
    </FileRef>
 </Workspace>
