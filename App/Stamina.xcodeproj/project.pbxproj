@@ -57,15 +57,15 @@
 		BF61B1AF211F464D0016E387 /* Stamina */ = {
 			isa = PBXGroup;
 			children = (
-				BF61B1C4212181B20016E387 /* turboboostcontrol.c */,
-				BF61B1BA211F464F0016E387 /* Stamina.entitlements */,
-				BF61B1C2212181B20016E387 /* Stamina-Bridging-Header.h */,
-				BF61B1C3212181B20016E387 /* turboboostcontrol.h */,
+				BF61B1B0211F464D0016E387 /* AppDelegate.swift */,
+				BF61B1B4211F464F0016E387 /* Assets.xcassets */,
+				BF9F76562121BF8C00E6FA59 /* Defaults.swift */,
 				BF61B1B9211F464F0016E387 /* Info.plist */,
 				BF61B1C6212191E20016E387 /* Main.storyboard */,
-				BF61B1B0211F464D0016E387 /* AppDelegate.swift */,
-				BF9F76562121BF8C00E6FA59 /* Defaults.swift */,
-				BF61B1B4211F464F0016E387 /* Assets.xcassets */,
+				BF61B1C2212181B20016E387 /* Stamina-Bridging-Header.h */,
+				BF61B1BA211F464F0016E387 /* Stamina.entitlements */,
+				BF61B1C4212181B20016E387 /* turboboostcontrol.c */,
+				BF61B1C3212181B20016E387 /* turboboostcontrol.h */,
 			);
 			path = Stamina;
 			sourceTree = "<group>";
