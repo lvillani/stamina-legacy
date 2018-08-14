@@ -59,7 +59,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func restoreFromDefaults() {
-        let enabled = Defaults().EnableTurboBoost
+        let enabled = Defaults().enableTurboBoost
         statusItem.image = enabled ? iconOn : iconOff
         set_turbo_boost_enabled(enabled)
     }

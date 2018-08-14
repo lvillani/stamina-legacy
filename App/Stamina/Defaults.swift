@@ -16,19 +16,24 @@
 import Foundation
 
 class Defaults {
-    private let EnableTurboBoostKey = "EnableTurboBoost"
+    private let enableTurboBoostKey = "EnableTurboBoost"
 
-    public var EnableTurboBoost: Bool {
+    public var enableTurboBoost: Bool {
         get {
-            if let val = UserDefaults().dictionaryRepresentation()[EnableTurboBoostKey] {
-                return val as! Bool
+            if let val = UserDefaults().dictionaryRepresentation()[enableTurboBoostKey] {
+                switch val {
+                case let boolVal as Bool:
+                    return boolVal
+                default:
+                    return true
+                }
             } else {
                 return true
             }
         }
 
         set {
-            UserDefaults().set(self, forKey: EnableTurboBoostKey)
+            UserDefaults().set(self, forKey: enableTurboBoostKey)
         }
     }
 }
