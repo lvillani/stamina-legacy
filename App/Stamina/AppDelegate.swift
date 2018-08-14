@@ -14,6 +14,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import Cocoa
+import os
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -21,13 +22,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var iconOn: NSImage!
     var statusItem: NSStatusItem!
 
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
+    func applicationDidFinishLaunching(_: Notification) {
         menuBarInit()
         checkKextAvailable()
         restoreFromDefaults()
+        registerDidWakeNotification()
     }
 
-    func applicationWillTerminate(_ aNotification: Notification) {
+    func registerDidWakeNotification() {
+        os_log("Registering system wakeup notification handler")
+
+        NSWorkspace.shared.notificationCenter.addObserver(
+            self,
+            selector: #selector(receiveDidWakeNotification),
+            name: NSWorkspace.didWakeNotification,
+            object: nil
+        )
+    }
+
+    @objc func receiveDidWakeNotification() {
+        os_log("System wakeup detected, restoring configured Turbo Boost setting")
+        
+        restoreFromDefaults()
     }
 
     func menuBarInit() {
