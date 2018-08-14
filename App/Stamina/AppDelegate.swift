@@ -54,7 +54,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func checkKextAvailable() {
         if !check_turbo_boost_control_available() {
-            fatalError("TurboBoostControl kext must be loaded and accessible")
+            let alert = NSAlert()
+            alert.alertStyle = NSAlert.Style.critical
+            alert.messageText = "Installation error"
+            alert.informativeText = "Unable to communicate with TurboBoostControl kernel extension"
+            alert.runModal()
+
+            exit(1)
         }
     }
 
